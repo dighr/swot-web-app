@@ -109,16 +109,14 @@ keystone.set("routes", require("./server/routes"));
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set("nav", {
 	users: "users",
-	countries: "countries",
-	projects: "projects",
 	fieldsites: "fieldsites",
-	datasets: "datasets",
-	blog: ["posts", "post-categories"],
-	pages: "pages",
-	enquiries: "enquiries",
-	welcomes: "welcomes",
-	datapoints: "datapoints",
-	attachments: "attachments",
+	organizations: "organizations",
+	areas: "areas",
+	responses: "responses",
+	user_management: ["enquiries", "welcomes"],
+	data: ["attachments", "datapoints", "datasets"],
+	content: ["pages", "posts", "post-categories"],
+	other: ["countries", "projects"],
 });
 
 // Start Keystone to connect to your database and initialise the web server
