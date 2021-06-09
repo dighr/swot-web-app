@@ -1104,12 +1104,13 @@ export default function ViewResults(props) {
 						</button>
 					</div>
 				</header>
-				<section className="table fieldsites">
+				<section className="table results">
 					<section className="table-header">
 						<div className="table-col">
 							<span className="txt-icon">Fieldsite</span>
 						</div>
-						<div className="table-col">Total Samples</div>
+						<div className="table-col">Response | Area</div>
+						<div className="table-col">Samples</div>
 						<div className="table-col">Latest Analysis</div>
 						<div className="table-col">Safety Level</div>
 						<div className="table-col"></div>
@@ -1117,12 +1118,13 @@ export default function ViewResults(props) {
 					<section className="table-body">
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Arbat IDP</Link>
+								<Link to="result/garwama">Camp 07</Link>
 							</div>
+							<div className="table-col">Iraq | Mamrashan</div>
 							<div className="table-col">305</div>
 							<div className="table-col">Feb 27 2021</div>
 							<div className="table-col">
-								<span className="safe-level not-safe"></span>
+								<span className="safe-level safe"></span>
 							</div>
 							<div className="table-col">
 								<TrashIcon />
@@ -1130,8 +1132,9 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Bardarash</Link>
+								<Link to="result/garwama">Camp DVP</Link>
 							</div>
+							<div className="table-col">Iraq | Arbat IDP</div>
 							<div className="table-col">15</div>
 							<div className="table-col">Jan 11 2021</div>
 							<div className="table-col">
@@ -1143,8 +1146,9 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Essian</Link>
+								<Link to="result/garwama">Camp Varungu</Link>
 							</div>
+							<div className="table-col">Nigeria | Essian</div>
 							<div className="table-col">105</div>
 							<div className="table-col">Nov 21 2020</div>
 							<div className="table-col">
@@ -1156,12 +1160,13 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Garmawa</Link>
+								<Link to="result/garwama">Arbat IDP</Link>
 							</div>
+							<div className="table-col">Iraq | Garmawa</div>
 							<div className="table-col">0</div>
 							<div className="table-col">- - -</div>
 							<div className="table-col">
-								<span className="safe-level safe"></span>
+								<span className="safe-level none"></span>
 							</div>
 							<div className="table-col">
 								<TrashIcon />
@@ -1169,8 +1174,9 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Mimillian</Link>
+								<Link to="result/garwama">Camp 03</Link>
 							</div>
+							<div className="table-col">Iraq | Mamrashan</div>
 							<div className="table-col">305</div>
 							<div className="table-col">Aug 17 2020</div>
 							<div className="table-col">
@@ -1182,12 +1188,13 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Mamrashan</Link>
+								<Link to="result/garwama">Bardarash</Link>
 							</div>
+							<div className="table-col">Nigeria | Essian</div>
 							<div className="table-col">234</div>
 							<div className="table-col">Aug 8 2021</div>
 							<div className="table-col">
-								<span className="safe-level not-safe"></span>
+								<span className="safe-level safe"></span>
 							</div>
 							<div className="table-col">
 								<TrashIcon />
@@ -1195,8 +1202,9 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Sheikhan</Link>
+								<Link to="result/garwama">Camp DV</Link>
 							</div>
+							<div className="table-col">Iraq | Arbat IDP</div>
 							<div className="table-col">312</div>
 							<div className="table-col">Jul 26 2020</div>
 							<div className="table-col">
@@ -1208,12 +1216,55 @@ export default function ViewResults(props) {
 						</div>
 						<div className="table-row">
 							<div className="table-col">
-								<Link to="fieldsite/garwama">Tazade</Link>
+								<Link to="result/garwama">Camp FJ2</Link>
 							</div>
+							<div className="table-col">Nigeria | Essian</div>
 							<div className="table-col">0</div>
 							<div className="table-col">- - -</div>
 							<div className="table-col">
-								<span className="safe-level safe"></span>
+								<span className="safe-level none"></span>
+							</div>
+							<div className="table-col">
+								<TrashIcon />
+							</div>
+						</div>
+						<div className="table-row">
+							<div className="table-col">
+								<Link to="result/garwama">Camp 21</Link>
+							</div>
+							<div className="table-col">Iraq | Garmawa</div>
+							<div className="table-col">0</div>
+							<div className="table-col">- - -</div>
+							<div className="table-col">
+								<span className="safe-level none"></span>
+							</div>
+							<div className="table-col">
+								<TrashIcon />
+							</div>
+						</div>
+						<div className="table-row">
+							<div className="table-col">
+								<Link to="result/garwama">Garmawa</Link>
+							</div>
+							<div className="table-col">Iraq | Mamrashan</div>
+							<div className="table-col">0</div>
+							<div className="table-col">- - -</div>
+							<div className="table-col">
+								<span className="safe-level none"></span>
+							</div>
+							<div className="table-col">
+								<TrashIcon />
+							</div>
+						</div>
+						<div className="table-row">
+							<div className="table-col">
+								<Link to="result/garwama">Rusape</Link>
+							</div>
+							<div className="table-col">Zimbabwe | Harare</div>
+							<div className="table-col">0</div>
+							<div className="table-col">- - -</div>
+							<div className="table-col">
+								<span className="safe-level none"></span>
 							</div>
 							<div className="table-col">
 								<TrashIcon />

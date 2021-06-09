@@ -41,6 +41,51 @@
 	}
 	.table-footer {
 	}
+	// common
+	.safe-level {
+		display: block;
+		margin: auto;
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+
+		&.none {
+			border: 2px solid;
+		}
+
+		&.safe {
+			background-color: #66d3b6;
+		}
+		&.not-safe {
+			background-color: #ff8d8d;
+		}
+		&.check {
+			background-color: #ffd110;
+		}
+	}
+	// results
+	&.results {
+		.table-header,
+		.table-row {
+			grid-template-columns:
+				minmax(0, 20%)
+				minmax(0, 25%)
+				minmax(0, 10%)
+				minmax(0, 20%)
+				minmax(0, 15%)
+				minmax(0, 10%);
+
+			> :nth-child(3) {
+				text-align: center;
+			}
+			> :nth-child(4) {
+				text-align: right;
+			}
+			> :nth-child(5) {
+				text-align: center;
+			}
+		}
+	}
 	// people
 	&.people {
 		.table-header,
@@ -72,27 +117,6 @@
 			}
 		}
 		.table-row {
-		}
-		.safe-level {
-			display: block;
-			margin: auto;
-			width: 10px;
-			height: 10px;
-			border-radius: 10px;
-
-			&.none {
-				border: 2px solid;
-			}
-
-			&.safe {
-				background-color: #66d3b6;
-			}
-			&.not-safe {
-				background-color: #ff8d8d;
-			}
-			&.check {
-				background-color: #ffd110;
-			}
 		}
 	}
 }

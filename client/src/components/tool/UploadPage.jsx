@@ -1115,7 +1115,25 @@ export default function UploadPage(props) {
 
 	return (
 		<form>
-			<h2 className="content-title">Choose a Location</h2>
+			{/* <h2 className="content-title">Choose a Location</h2> */}
+
+			<section
+				id="collect-data"
+				className="content-window bleed-edges rich-text"
+			>
+				<header>
+					<div className="content-window-title txt-condensed">
+						Step 2. Upload Your Data
+					</div>
+					<div className="content-window-title-description">
+						<p>
+							Use the options below to select your Fieldsite and
+							attach the data collected to it.
+						</p>
+					</div>
+				</header>
+				<section></section>
+			</section>
 
 			<section className="content-window">
 				<header>

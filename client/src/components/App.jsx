@@ -11,7 +11,7 @@ import ContactPage from "./ContactPage";
 
 // Tool Imports
 import CollectData from "./tool/CollectData";
-import UploadPage from "./tool/UploadPage";
+import UploadPage from "./tool/UploadData";
 import SendForAnalysis from "./tool/SendForAnalysis";
 import ViewResults from "./tool/ViewResults";
 import Result from "./tool/Result";
