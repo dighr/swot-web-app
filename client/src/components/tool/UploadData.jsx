@@ -1154,8 +1154,6 @@ export default function UploadData(props) {
 
 	return (
 		<form>
-			{/* <h2 className="content-title">Choose a Location</h2> */}
-
 			<section
 				id="collect-data"
 				className="content-window bleed-edges rich-text"

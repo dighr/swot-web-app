@@ -50,7 +50,11 @@ export default function SideBar(props) {
 						</li>
 					)}
 					<li className="nav-item nav-profile signout">
+<<<<<<< HEAD
 						<Link
+=======
+						<a
+>>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 							id="accountDetails"
 							className="signout"
 							href="/admin/signout"
@@ -60,7 +64,11 @@ export default function SideBar(props) {
 							<i>
 								<SignOutIcon />
 							</i>
+<<<<<<< HEAD
 						</Link>
+=======
+						</a>
+>>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 					</li>
 				</>
 			);
@@ -78,6 +86,7 @@ export default function SideBar(props) {
 							<span className="label">Log in to Start</span>
 						</Link>
 					</li>
+<<<<<<< HEAD
 					<li className="nav-item nav-profile signin">
 						<a href="/signin" title="Sign In" className="icon">
 							<i>
@@ -85,6 +94,8 @@ export default function SideBar(props) {
 							</i>
 						</a>
 					</li>
+=======
+>>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 				</>
 			);
 		}
