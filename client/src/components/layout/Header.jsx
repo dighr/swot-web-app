@@ -50,11 +50,7 @@ export default function SideBar(props) {
 						</li>
 					)}
 					<li className="nav-item nav-profile signout">
-<<<<<<< HEAD
-						<Link
-=======
 						<a
->>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 							id="accountDetails"
 							className="signout"
 							href="/admin/signout"
@@ -64,11 +60,7 @@ export default function SideBar(props) {
 							<i>
 								<SignOutIcon />
 							</i>
-<<<<<<< HEAD
-						</Link>
-=======
 						</a>
->>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 					</li>
 				</>
 			);
@@ -86,16 +78,6 @@ export default function SideBar(props) {
 							<span className="label">Log in to Start</span>
 						</Link>
 					</li>
-<<<<<<< HEAD
-					<li className="nav-item nav-profile signin">
-						<a href="/signin" title="Sign In" className="icon">
-							<i>
-								<SignInIcon />
-							</i>
-						</a>
-					</li>
-=======
->>>>>>> a2f1d95e944dd3902595580eef88e461459a5b60
 				</>
 			);
 		}
@@ -122,7 +104,10 @@ export default function SideBar(props) {
 
 				<ul className="nav-wrap">
 					<li className="nav-item show-medium-up">
-						<Link to="/page/about" title="About the Project">
+						<Link
+							to="https://www.safeh2o.app/"
+							title="About the Project"
+						>
 							<span>About</span>
 						</Link>
 					</li>
