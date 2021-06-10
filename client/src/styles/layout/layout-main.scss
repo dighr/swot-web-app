@@ -11,6 +11,11 @@ main {
 @media (max-width: 960px) {
 	main {
 		justify-items: center;
+
+		> * {
+			width: 100%;
+			max-width: 480px;
+		}
 	}
 }
 @media (min-width: 960px) {

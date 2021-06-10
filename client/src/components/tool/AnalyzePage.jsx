@@ -255,6 +255,10 @@ export default function AnalyzePage(props) {
 								renderInput={(params) => (
 									<TextField
 										{...params}
+										InputProps={{
+											...params.InputProps,
+											disableUnderline: true,
+										}}
 										label=""
 										variant="standard"
 									/>
@@ -418,8 +422,8 @@ export default function AnalyzePage(props) {
 								Confidence Level
 							</FormLabel> */}
 							<RadioGroup
-								aria-label="gender"
-								name="gender1"
+								aria-label="confidence"
+								name="confidence"
 								value={state.confidence}
 								onChange={(_e, confidence) => {
 									update({ confidence });
