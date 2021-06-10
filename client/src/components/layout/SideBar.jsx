@@ -13,7 +13,7 @@ export default function SideBar() {
 
 	function renderNavItem(section, i) {
 		return (
-			<NavLink
+			<Link
 				key={section[1]}
 				title={section[1]}
 				className="nav-item-side"
@@ -23,7 +23,7 @@ export default function SideBar() {
 					{section[2] ? <span className="num">{i + 1}.</span> : ``}
 					<span>{section[1]}</span>
 				</span>
-			</NavLink>
+			</Link>
 		);
 	}
 

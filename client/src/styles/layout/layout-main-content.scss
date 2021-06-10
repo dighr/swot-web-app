@@ -278,13 +278,25 @@
 		opacity: 1;
 	}
 }
-#content > * {
+#content > *,
+#content > form > * {
 	opacity: 0;
-	animation: windowFadeIn 0.15s ease 0.5s 1 forwards;
+	animation: windowFadeIn 0.1s ease 0s 1 forwards;
 
 	@for $i from 1 to 10 {
 		&:nth-child(#{$i}) {
-			animation-delay: #{0.25 * $i}s;
+			animation-delay: #{0.075 * $i}s;
+		}
+	}
+}
+
+nav.nav-wrap > * {
+	opacity: 0;
+	animation: windowFadeIn 0.1s ease 0.3s 1 forwards;
+
+	@for $i from 1 to 10 {
+		&:nth-child(#{$i}) {
+			animation-delay: #{0.075 * $i}s;
 		}
 	}
 }

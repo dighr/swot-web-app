@@ -1,18 +1,10 @@
 import React, { useState, useRef, useReducer, useEffect } from "react";
 
-import FormSelectSearch from "../elements/FormSelectSearch";
-
 import { Link } from "react-router-dom";
 import NoteLine from "../elements/NoteLine";
 import { MEGABYTE } from "../../helpers/bitcalc";
 import { DropzoneArea } from "material-ui-dropzone";
-import {
-	Button,
-	Checkbox,
-	FormControlLabel,
-	makeStyles,
-	TextField,
-} from "@material-ui/core";
+import { Button, Checkbox, makeStyles, TextField } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { addError, addNotice, setLoading } from "../../reducers/notifications";
 import Autocomplete from "@material-ui/lab/Autocomplete";
@@ -139,7 +131,7 @@ export default function UploadPage(props) {
 
 			<section className="content-window">
 				<header>
-					<div className="content-window-title">Location</div>
+					<div className="content-window-title">Choose Location</div>
 					<div className="section-options"></div>
 				</header>
 				<section>
@@ -152,8 +144,12 @@ export default function UploadPage(props) {
 								renderInput={(params) => (
 									<TextField
 										{...params}
+										InputProps={{
+											...params.InputProps,
+											disableUnderline: true,
+										}}
 										label=""
-										variant="outlined"
+										variant="standard"
 									/>
 								)}
 								value={state && state.fieldsite}
@@ -243,7 +239,6 @@ export default function UploadPage(props) {
 					<div className={"submission-wrap " + classes.root}>
 						<Button
 							className="button green submit"
-							color="primary"
 							variant="contained"
 							onClick={handleFormSubmit}
 							disabled={disabled}
@@ -254,7 +249,6 @@ export default function UploadPage(props) {
 							className="button reset"
 							type="reset"
 							variant="contained"
-							color=""
 							onClick={handleFormReset}
 						>
 							Reset Fields

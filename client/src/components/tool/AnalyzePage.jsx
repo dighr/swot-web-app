@@ -256,7 +256,7 @@ export default function AnalyzePage(props) {
 									<TextField
 										{...params}
 										label=""
-										variant="outlined"
+										variant="standard"
 									/>
 								)}
 								value={state && state.fieldsite}

@@ -8,9 +8,14 @@ main {
 	max-width: 1280px;
 	margin: 0 auto;
 }
+@media (max-width: 960px) {
+	main {
+		justify-items: center;
+	}
+}
 @media (min-width: 960px) {
 	main {
-		grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
 	}
 }
 
