@@ -123,7 +123,6 @@ export default function ResultsPage(props) {
 					rows={datasets}
 					columns={columns}
 					checkboxSelection
-					autoHeight
 					getRowId={(row) => row._id}
 					onSelectionModelChange={handleSelection}
 					sortModel={[{ field: "dateOfReading", sort: "desc" }]}
