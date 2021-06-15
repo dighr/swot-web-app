@@ -1,5 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
-import FormSelectSearch from "../elements/FormSelectSearch";
+import React, { useEffect, useState } from "react";
 // Styles
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 // Slider
@@ -10,18 +9,16 @@ import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import MuiAccordionExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // Date Picker
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import DateRangePicker from "@wojtekmaj/react-daterange-picker";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelectors } from "../../reducers/user";
+import ClearIcon from "@material-ui/icons/Clear";
 import {
 	Button,
 	ButtonGroup,
 	FormControl,
-	FormControlLabel,
-	FormLabel,
 	Radio,
+	FormControlLabel,
 	RadioGroup,
 } from "@material-ui/core";
 import NoteLine from "../elements/NoteLine";
@@ -30,6 +27,10 @@ import { DateTime } from "luxon";
 import { addError, addNotice, setLoading } from "../../reducers/notifications";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
+import FieldsitesDropdown from "../elements/FieldsitesDropdown";
+
+import { IconCalendar } from "../icons";
+import { DEFAULT_FIELDSITE } from "../../constants/defaults";
 
 import { IconCalendar, IconAdd } from "../icons";
 
@@ -151,40 +152,27 @@ const AccordionDetails = withStyles(() => ({
 }))(MuiAccordionDetails);
 
 const initialState = {
-	fieldsite: null,
+	fieldsite: DEFAULT_FIELDSITE,
 	startDate: null,
 	endDate: null,
 	duration: 3,
 	confidence: "optimum",
-	name: "",
-	description: "",
 };
 
-export default function AnalyzePage(props) {
+export default function AnalyzePage() {
 	const classes = useStyles();
 
-	const userFieldsites = useSelector(userSelectors.fieldsites);
 	const { state, update, reset } = useForm(initialState);
 	const [disabled, setDisabled] = useState(true);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const {
-			fieldsite,
-			startDate,
-			endDate,
-			duration,
-			confidence,
-			name,
-			description,
-		} = state;
+		const { fieldsite, startDate, endDate, duration, confidence } = state;
 		setDisabled(
-			!fieldsite ||
+			!fieldsite._id ||
 				(!startDate && !endDate) ||
 				!duration ||
-				!confidence ||
-				!name ||
-				!description
+				!confidence
 		);
 	}, [state]);
 
@@ -203,12 +191,12 @@ export default function AnalyzePage(props) {
 		dispatch(setLoading(true));
 		axios
 			.post("/api/upload/analyze", state)
-			.then((res) => {
+			.then(() => {
 				dispatch(
 					addNotice({ label: "success", notice: "Analyze Success" })
 				);
 			})
-			.catch((err) =>
+			.catch(() =>
 				dispatch(addError("Error occurred while trying to analyze"))
 			)
 			.finally(() => {
@@ -248,27 +236,13 @@ export default function AnalyzePage(props) {
 				<section>
 					<div className="flex-group">
 						<label>
-							<Autocomplete
-								id="fieldsite"
-								options={userFieldsites}
-								getOptionLabel={(option) => option.name}
-								renderInput={(params) => (
-									<TextField
-										{...params}
-										InputProps={{
-											...params.InputProps,
-											disableUnderline: true,
-										}}
-										label=""
-										variant="standard"
-									/>
-								)}
-								value={state && state.fieldsite}
+							<FieldsitesDropdown
 								onChange={(_event, value) => {
 									update({
 										fieldsite: value,
 									});
 								}}
+								value={state && state.fieldsite}
 							/>
 							<span className="label">Fieldsite</span>
 						</label>
@@ -342,7 +316,7 @@ export default function AnalyzePage(props) {
 						<DateRangePicker
 							rangeDivider={" to "}
 							calendarIcon={<IconCalendar />}
-							clearIcon={<IconAdd />}
+							clearIcon={<ClearIcon />}
 							value={[state.startDate, state.endDate]}
 							onChange={handleDateChange}
 						/>
@@ -433,8 +407,8 @@ export default function AnalyzePage(props) {
 									value="minimum"
 									control={<Radio color="primary" />}
 									label="Minimum Decay"
-								/> */}
-								<label
+								/>
+								{/* <label
 									htmlFor="minimum"
 									className="radio block"
 								>
@@ -446,14 +420,14 @@ export default function AnalyzePage(props) {
 										id="minimum"
 									/>
 									<span className="label">Medium Decay</span>
-								</label>
+								</label> */}
 
-								{/* <FormControlLabel
+								<FormControlLabel
 									value="optimum"
 									control={<Radio color="primary" />}
 									label="Optimum Decay"
-								/> */}
-								<label
+								/>
+								{/* <label
 									htmlFor="optimum"
 									className="radio block"
 								>
@@ -465,14 +439,14 @@ export default function AnalyzePage(props) {
 										id="optimum"
 									/>
 									<span className="label">Optimum Decay</span>
-								</label>
+								</label> */}
 
-								{/* <FormControlLabel
+								<FormControlLabel
 									value="maximum"
 									control={<Radio color="primary" />}
 									label="Maximum Decay"
-								/> */}
-								<label
+								/>
+								{/* <label
 									htmlFor="maximum"
 									className="radio block"
 								>
@@ -484,7 +458,7 @@ export default function AnalyzePage(props) {
 										id="maximum"
 									/>
 									<span className="label">Maximum Decay</span>
-								</label>
+								</label> */}
 							</RadioGroup>
 						</FormControl>
 					</section>

@@ -2,6 +2,7 @@ import React from "react";
 import NoteLine from "../elements/NoteLine";
 import FormSelectSearch from "../elements/FormSelectSearch";
 import { Link } from "react-router-dom";
+import NoteLine from "../elements/NoteLine";
 
 // icons
 import ReactCountryFlag from "react-country-flag";

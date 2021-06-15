@@ -1,18 +1,19 @@
-import React, { useState, useRef, useReducer, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import NoteLine from "../elements/NoteLine";
 import { MEGABYTE } from "../../helpers/bitcalc";
 import { DropzoneArea } from "material-ui-dropzone";
-import { Button, Checkbox, makeStyles, TextField } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { addError, addNotice, setLoading } from "../../reducers/notifications";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import user, { userSelectors } from "../../reducers/user";
+import { userSelectors } from "../../reducers/user";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
 
 import { IconUpload } from "../icons";
+import FieldsitesDropdown from "../elements/FieldsitesDropdown";
+import { DEFAULT_FIELDSITE } from "../../constants/defaults";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -25,25 +26,25 @@ const useStyles = makeStyles((theme) => ({
 const initialState = {
 	response: null,
 	area: null,
-	fieldsite: { _id: null, name: "" },
+	fieldsite: DEFAULT_FIELDSITE,
 	files: [],
 	overwrite: false,
 };
 
-export default function UploadPage(props) {
+export default function UploadPage() {
 	const classes = useStyles();
-
-	const userFieldsites = useSelector(userSelectors.fieldsites);
-
-	// const [state, formDispatch] = useReducer(simpleFormReducer, initialState);
 	const { state, update, reset } = useForm(initialState);
 	const [disabled, setDisabled] = useState(true);
+	const dispatch = useDispatch();
+	const fileInput = useRef(null);
+
+	useEffect(() => {
+		const isDisabled = state.files.length === 0 || !state.fieldsite._id;
+		setDisabled(isDisabled);
+	}, [state]);
 
 	function getFormData() {
 		const formData = new FormData();
-		// Object.keys(state).forEach((field) => {
-		// 	formData.append(field, state[field]);
-		// })
 		const {
 			files,
 			overwrite,
@@ -67,19 +68,6 @@ export default function UploadPage(props) {
 		} selected:`;
 	}
 
-	useEffect(() => {
-		const isDisabled =
-			state.files.length === 0 ||
-			// !state.response ||
-			// !state.area ||
-			!state.fieldsite;
-		setDisabled(isDisabled);
-	}, [state]);
-
-	const dispatch = useDispatch();
-
-	const fileInput = useRef(null);
-
 	const handleFileChange = (files) => {
 		update({ files });
 	};
@@ -98,7 +86,6 @@ export default function UploadPage(props) {
 				dispatch(
 					addNotice({ label: "Success", notice: "Upload success" })
 				);
-				// console.log(res);
 			})
 			.catch((err) => {
 				dispatch(
@@ -108,7 +95,6 @@ export default function UploadPage(props) {
 			})
 			.finally(() => {
 				dispatch(setLoading(false));
-				handleFormReset();
 			});
 	};
 
@@ -137,21 +123,7 @@ export default function UploadPage(props) {
 				<section>
 					<div className="flex-group">
 						<label>
-							<Autocomplete
-								id="fieldsite"
-								options={userFieldsites}
-								getOptionLabel={(option) => option.name}
-								renderInput={(params) => (
-									<TextField
-										{...params}
-										InputProps={{
-											...params.InputProps,
-											disableUnderline: true,
-										}}
-										label=""
-										variant="standard"
-									/>
-								)}
+							<FieldsitesDropdown
 								value={state && state.fieldsite}
 								onChange={(_event, value) => {
 									update({
@@ -239,6 +211,7 @@ export default function UploadPage(props) {
 					<div className={"submission-wrap " + classes.root}>
 						<Button
 							className="button green submit"
+							color="primary"
 							variant="contained"
 							onClick={handleFormSubmit}
 							disabled={disabled}

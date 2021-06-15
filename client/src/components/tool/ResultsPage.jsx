@@ -10,8 +10,10 @@ import { Button, TextField } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelectors } from "../../reducers/user";
 import axios from "axios";
-import { addNotice } from "../../reducers/notifications";
+import { addNotice, setLoading } from "../../reducers/notifications";
 import { DateTime } from "luxon";
+import FieldsitesDropdown from "../elements/FieldsitesDropdown";
+import { DEFAULT_FIELDSITE } from "../../constants/defaults";
 
 const columns = [
 	{ field: "name", headerName: "Dataset Name", flex: 1 },
@@ -33,27 +35,27 @@ const columns = [
 	},
 ];
 
-export default function ResultsPage(props) {
-	const userFieldsites = useSelector(userSelectors.fieldsites);
-	const [fieldsite, setFieldsite] = useState(null);
+export default function ResultsPage() {
+	const [fieldsite, setFieldsite] = useState(DEFAULT_FIELDSITE);
 	const [datasets, setDatasets] = useState([]);
 	// list of selected dataset id's
 	const [selectedDatasets, setSelectedDatasets] = useState([]);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (!fieldsite) {
-			setFieldsite(userFieldsites[0]);
-		}
-	}, [userFieldsites]);
-
-	useEffect(() => {
-		if (fieldsite)
+		if (fieldsite && fieldsite.name) {
+			dispatch(setLoading(true));
 			axios
 				.get(`/api/user/datasets?fieldsite=${fieldsite._id}`)
 				.then((res) => {
 					setDatasets(res.data.datasets);
+				})
+				.finally(() => {
+					dispatch(setLoading(false));
 				});
+		} else {
+			setDatasets([]);
+		}
 	}, [fieldsite]);
 
 	function handleSelection(params) {
@@ -77,34 +79,17 @@ export default function ResultsPage(props) {
 				</header>
 				<section>
 					<div className="flex-group">
-						<label>
-							<Autocomplete
-								id="fieldsite"
-								options={userFieldsites}
-								getOptionLabel={(option) => option.name}
-								renderInput={(params) => (
-									<TextField
-										{...params}
-										InputProps={{
-											...params.InputProps,
-											disableUnderline: true,
-										}}
-										label=""
-										variant="standard"
-									/>
-								)}
-								value={fieldsite}
-								onChange={(_event, value) => {
-									setFieldsite(value);
-								}}
-							/>
-							<span className="label">Fieldsite</span>
-						</label>
+						<FieldsitesDropdown
+							value={fieldsite}
+							onChange={(_event, value) => {
+								setFieldsite(value);
+							}}
+						/>
 					</div>
 				</section>
 				<footer>
 					<Link to="/contact">
-						<NoteLine text={["Something missing?"]} />
+						<Notice text={["Something missing?"]} />
 					</Link>
 				</footer>
 			</section>
@@ -113,12 +98,11 @@ export default function ResultsPage(props) {
 					<div className="content-window-title">Results</div>
 					<div className="content-window-options">
 						<Button
-							className="button yellow"
+							color="primary"
 							disabled={!selectedDatasets.length}
 							onClick={handleReanalysis}
 						>
-							<IconAdd width={"1.1em"} height={"1.1em"} />
-							<span>Reanalyze Selected</span>
+							Reanalyze Selected
 						</Button>
 					</div>
 				</header>
