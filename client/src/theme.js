@@ -32,5 +32,9 @@ export default createMuiTheme({
 				},
 			},
 		},
+		MuiButton: {
+			root: {},
+		},
+		MuiCheckbox: {},
 	},
 });

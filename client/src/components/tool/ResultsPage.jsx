@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import Notice from "../elements/Notice";
+import NoteLine from "../elements/NoteLine";
+import GuideLine from "../elements/GuideLine";
+import { IconAdd } from "../icons";
 import { Link } from "react-router-dom";
 
 import { DataGrid } from "@material-ui/data-grid";
@@ -102,7 +104,7 @@ export default function ResultsPage(props) {
 				</section>
 				<footer>
 					<Link to="/contact">
-						<Notice text={["Something missing?"]} />
+						<NoteLine text={["Something missing?"]} />
 					</Link>
 				</footer>
 			</section>
@@ -111,22 +113,31 @@ export default function ResultsPage(props) {
 					<div className="content-window-title">Results</div>
 					<div className="content-window-options">
 						<Button
-							color="primary"
+							className="button yellow"
 							disabled={!selectedDatasets.length}
 							onClick={handleReanalysis}
 						>
-							Reanalyze Selected
+							<IconAdd width={"1.1em"} height={"1.1em"} />
+							<span>Reanalyze Selected</span>
 						</Button>
 					</div>
 				</header>
-				<DataGrid
-					rows={datasets}
-					columns={columns}
-					checkboxSelection
-					getRowId={(row) => row._id}
-					onSelectionModelChange={handleSelection}
-					sortModel={[{ field: "dateOfReading", sort: "desc" }]}
-				/>
+				<section className="DataGridContainer">
+					<div style={{ display: "flex", height: "100%" }}>
+						<div style={{ flexGrow: 1 }}>
+							<DataGrid
+								rows={datasets}
+								columns={columns}
+								checkboxSelection
+								getRowId={(row) => row._id}
+								onSelectionModelChange={handleSelection}
+								sortModel={[
+									{ field: "dateOfReading", sort: "desc" },
+								]}
+							/>
+						</div>
+					</div>
+				</section>
 				<footer></footer>
 			</section>
 		</>

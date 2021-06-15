@@ -12,9 +12,12 @@ main {
 	main {
 		justify-items: center;
 
-		> * {
+		.breadcrumbs {
 			width: 100%;
-			max-width: 480px;
+		}
+		> *:not(.breadcrumbs) {
+			width: 100%;
+			max-width: 700px;
 		}
 	}
 }

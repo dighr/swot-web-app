@@ -1,5 +1,5 @@
 import React from "react";
-import Notice from "../elements/Notice";
+import NoteLine from "../elements/NoteLine";
 import FormSelectSearch from "../elements/FormSelectSearch";
 import { Link } from "react-router-dom";
 

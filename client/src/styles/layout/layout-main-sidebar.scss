@@ -94,6 +94,7 @@ nav .dashboard {
 		right: 0;
 		bottom: 0;
 		max-height: calc(100vh - 85px);
+		max-width: none;
 		overflow: auto;
 		body.nav-active & {
 			padding-left: 5%;
