@@ -7,8 +7,6 @@ import { userSelectors as userSelectors } from "../reducers/user";
 
 import { IconTrash } from "./icons";
 
-import { IconTrash, IconAdd } from "./icons";
-
 // function Dashboard(props) {
 export default function Home(props) {
 	const isLoggedIn = useSelector(userSelectors.isLoggedIn);

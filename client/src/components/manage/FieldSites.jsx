@@ -1,17 +1,11 @@
 import React from "react";
-import NoteLine from "../elements/NoteLine";
-import FormSelectSearch from "../elements/FormSelectSearch";
 import { Link } from "react-router-dom";
 
 import NoteLine from "../elements/NoteLine";
 // icons
-import ReactCountryFlag from "react-country-flag";
-import DetectEmoji from "../HelperDetectEmoji";
 import { IconTrash } from "../icons";
 
 export default function FieldSites(props) {
-	console.log(DetectEmoji());
-
 	return (
 		<>
 			<section className="content-window">
@@ -19,27 +13,13 @@ export default function FieldSites(props) {
 					<div className="content-window-title">Location</div>
 					<div className="section-options"></div>
 				</header>
-				{/* <section>
+				<section>
 					<div className="flex-group">
-						<label className="space">
-							<FormSelectSearch
-								options={OptionsResponse}
-								default={[
-									{
-										name: "Nigeria",
-										value: "NG",
-									},
-								]}
-								icon={true}
-							/>
+						<label className="">
 							<span className="label">Response</span>
 						</label>
-						<label className="space">
-							<FormSelectSearch options={OptionsArea} />
-							<span className="label">Area</span>
-						</label>
 					</div>
-				</section> */}
+				</section>
 				<footer>
 					<Link to="/contact">
 						<NoteLine

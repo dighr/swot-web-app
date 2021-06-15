@@ -32,8 +32,6 @@ import FieldsitesDropdown from "../elements/FieldsitesDropdown";
 import { IconCalendar } from "../icons";
 import { DEFAULT_FIELDSITE } from "../../constants/defaults";
 
-import { IconCalendar, IconAdd } from "../icons";
-
 // const useStyles = makeStyles((theme) => ({
 // 	root: {
 // 		width: 300 + theme.spacing(3) * 2,

@@ -1,17 +1,12 @@
 import React from "react";
-import NoteLine from "../elements/NoteLine";
 import FormSelectSearch from "../elements/FormSelectSearch";
 import { Link } from "react-router-dom";
 import NoteLine from "../elements/NoteLine";
 
 // icons
-import ReactCountryFlag from "react-country-flag";
-import DetectEmoji from "../HelperDetectEmoji";
 import { IconTrash } from "../icons";
 
 export default function FieldSites(props) {
-	console.log(DetectEmoji());
-
 	// Demo Data
 	const OptionsOrganisations = [
 		{
