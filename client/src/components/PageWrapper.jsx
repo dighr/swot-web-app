@@ -13,6 +13,8 @@ import { ThemeProvider } from "@material-ui/styles";
 import theme from "../theme";
 import { Backdrop, CircularProgress, makeStyles } from "@material-ui/core";
 
+import { IconHome } from "./icons";
+
 const useStyles = makeStyles((theme) => ({
 	backdrop: {
 		zIndex: theme.zIndex.drawer + 1,
@@ -76,21 +78,23 @@ export default function PageWrapper(props) {
 			<Backdrop open={isLoading} className={classes.backdrop}>
 				<CircularProgress />
 			</Backdrop>
+			<div className="breadcrumbs">
+				<span className="crumb">
+					<span className="txt-icon">
+						<i>
+							<IconHome />
+						</i>
+						<span>Home</span>
+					</span>
+				</span>
+				<span className="crumb">
+					<span className="txt-icon">
+						<span>Tool</span>
+					</span>
+				</span>
+			</div>
 			<main>
 				{HeaderView()}
-				<div className="breadcrumbs">
-					<span className="crumb">
-						<span className="txt-icon">
-							<i></i>
-							<span>Home</span>
-						</span>
-					</span>
-					<span className="crumb">
-						<span className="txt-icon">
-							<span>Tool</span>
-						</span>
-					</span>
-				</div>
 				<SideBar /> {/* Tool|Admin Navigation */}
 				<section id="content">
 					<FlashMessages />

@@ -30,6 +30,7 @@
 	font-size: 3.25rem;
 	font-weight: 400;
 	letter-spacing: -0.01em;
+	text-align: center;
 	color: #4069b1;
 }
 .modal-content,
@@ -207,9 +208,8 @@
 
 @media (min-width: 960px) {
 	#content {
-		> * {
-			max-width: 760px;
-		}
+		flex: 0 1 820px;
+		align-self: flex-start;
 	}
 	#ConfirmModal {
 		max-width: none;

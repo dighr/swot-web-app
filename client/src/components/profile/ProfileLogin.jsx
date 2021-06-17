@@ -45,46 +45,38 @@ export default function ProfileLogin(props) {
 				<section className="content-window">
 					<section>
 						<div className="flex-group">
-							<div className="flex-group-item line">
-								<div className="flex-group-wrapper">
-									<label
-										htmlFor="sender-email"
-										className="control-label"
-									>
-										Email:
-									</label>
-									<input
-										className="form-control email"
-										id="signin-email"
-										placeholder="you@mail.com"
-										name="email"
-										type="email"
-										onChange={() => {
-											handleChange();
-										}}
-									/>
-								</div>
-							</div>
-							<div className="flex-group-item line">
-								<div className="flex-group-wrapper">
-									<label
-										htmlFor="user-pass"
-										className="control-label"
-									>
-										Password:
-									</label>
-									<input
-										type="password"
-										className="form-control"
-										placeholder="Password"
-										name="password"
-										id="password"
-										onChange={() => {
-											handleChange();
-										}}
-									/>
-								</div>
-							</div>
+							<label
+								htmlFor="sender-email"
+								className="control-label line"
+							>
+								<input
+									className="form-control email"
+									id="signin-email"
+									placeholder="you@mail.com"
+									name="email"
+									type="email"
+									onChange={() => {
+										handleChange();
+									}}
+								/>
+								<span class="label">Email:</span>
+							</label>
+							<label
+								htmlFor="user-pass"
+								className="control-label line"
+							>
+								<input
+									type="password"
+									className="form-control"
+									placeholder="Password"
+									name="password"
+									id="password"
+									onChange={() => {
+										handleChange();
+									}}
+								/>
+								<span class="label">Password:</span>
+							</label>
 						</div>
 					</section>
 				</section>

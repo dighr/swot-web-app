@@ -1,5 +1,5 @@
-export { default as Admin } from "./Admin";
-export * from "./Admin";
+export { default as IconAdmin } from "./IconAdmin";
+export * from "./IconAdmin";
 
 export { default as Download } from "./Download";
 export * from "./Download";
@@ -22,11 +22,11 @@ export * from "./SidebarManageNav";
 export { default as SidebarToolNav } from "./SidebarToolNav";
 export * from "./SidebarToolNav";
 
-export { default as SignIn } from "./SignIn";
-export * from "./SignIn";
+export { default as IconSignIn } from "./IconSignIn";
+export * from "./IconSignIn";
 
-export { default as SignOut } from "./SignOut";
-export * from "./SignOut";
+export { default as IconSignOut } from "./IconSignOut";
+export * from "./IconSignOut";
 
 export { default as IconTrash } from "./IconTrash";
 export * from "./IconTrash";
@@ -36,3 +36,6 @@ export * from "./IconUpload";
 
 export { default as IconCalendar } from "./IconCalendar";
 export * from "./IconCalendar";
+
+export { default as IconHome } from "./IconHome";
+export * from "./IconHome";

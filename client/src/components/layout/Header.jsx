@@ -7,9 +7,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import { IconButton } from "@material-ui/core";
 
 // icons
-import SignInIcon from "../icons/SignIn";
-import SignOutIcon from "../icons/SignOut";
-import AdminIcon from "../icons/Admin";
+import { IconSignIn, IconSignOut, IconAdmin } from "../icons";
 
 export default function Header(props) {
 	const isLoggedIn = useSelector(userSelectors.isLoggedIn);
@@ -44,7 +42,7 @@ export default function Header(props) {
 								color="inherit"
 							>
 								<i>
-									<AdminIcon />
+									<IconAdmin />
 								</i>
 							</a>
 						</li>
@@ -58,7 +56,7 @@ export default function Header(props) {
 							title="Log Out"
 						>
 							<i>
-								<SignOutIcon />
+								<IconSignOut />
 							</i>
 						</a>
 					</li>
@@ -70,10 +68,7 @@ export default function Header(props) {
 					<li className="nav-item get-started show-medium-up">
 						<Link to="/signin" className="txt-icon">
 							<i>
-								<img
-									src="/assets/icons/header-nav-swot.svg"
-									alt=""
-								/>
+								<IconSignIn />
 							</i>
 							<span className="label">Log in to Start</span>
 						</Link>

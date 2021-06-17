@@ -1,29 +1,29 @@
 /* Layout - Main */
 main {
-	display: grid;
-	grid-template-columns: minmax(0, 100%);
-	grid-template-rows: auto 1fr;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
 
 	min-height: calc(80vh - 85px);
-	max-width: 1280px;
 	margin: 0 auto;
 }
 @media (max-width: 960px) {
 	main {
 		justify-items: center;
 
-		.breadcrumbs {
-			width: 100%;
-		}
 		> *:not(.breadcrumbs) {
 			width: 100%;
 			max-width: 700px;
 		}
 	}
 }
-@media (min-width: 960px) {
+@media (max-width: 960px) {
 	main {
-		grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+	}
+}
+@media (min-width: 1280px) {
+	main {
+		justify-content: center;
 	}
 }
 
@@ -34,6 +34,8 @@ main {
 
 	color: #747e87;
 	padding: 10px 20px;
+	margin: 0 auto;
+	max-width: 1280px;
 
 	.crumb {
 		display: flex;

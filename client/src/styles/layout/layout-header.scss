@@ -179,6 +179,7 @@
 	a {
 		i {
 			margin: 0 5px;
+			transform: scale(1.1);
 		}
 		i,
 		img,
@@ -188,6 +189,8 @@
 		}
 		&:after {
 			background-color: rgba(255, 255, 255, 0.075);
+			width: 105%;
+			height: 115%;
 		}
 	}
 }

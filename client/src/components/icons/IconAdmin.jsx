@@ -1,6 +1,6 @@
 import React from "react";
 
-function Admin() {
+function IconAdmin() {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ function Admin() {
 		</svg>
 	);
 }
-export default Admin;
+export default IconAdmin;

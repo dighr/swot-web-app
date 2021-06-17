@@ -58,10 +58,6 @@ export default function Home(props) {
 										Microsoft Excel
 									</a>
 									,{" "}
-									<a href="https://www.google.com/sheets/">
-										Google Sheets
-									</a>
-									,{" "}
 									<a href="https://www.kobotoolbox.org/">
 										KoboToolbox
 									</a>{" "}

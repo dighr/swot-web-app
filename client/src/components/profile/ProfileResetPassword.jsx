@@ -28,79 +28,58 @@ export default function ProfileResetPassword(props) {
 
 	return (
 		<>
-			<div className="container">
-				<div className="panel panel-primary">
-					<div className=" px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-						<h1 className="display-4" id="headerText">
-							Password Reset
-						</h1>
-					</div>
-					<br />
-					<div className="panel-body">
-						<div className="col-md-4">
-							<form
-								ref={form}
-								role="form"
-								action="/resetpassword"
-								method="post"
+			<h1 className="content-title">Password Reset</h1>
+			<form ref={form} role="form" action="/resetpassword" method="post">
+				<section className="content-window">
+					<section>
+						<input type="hidden" name="resetkey" value={key} />
+						<div className="flex-group">
+							<label
+								htmlFor="password"
+								className="control-label line"
 							>
 								<input
-									type="hidden"
-									name="resetkey"
-									value={key}
+									onChange={() => {
+										handleChange();
+									}}
+									className="form-control email"
+									id="password"
+									name="password"
+									type="password"
 								/>
-
-								<div className="form-group">
-									<label
-										htmlFor="password"
-										className="control-label"
-									>
-										Password:
-									</label>
-									<div className="input-icon">
-										<input
-											onChange={() => {
-												handleChange();
-											}}
-											className="form-control email"
-											id="password"
-											name="password"
-											type="password"
-										/>
-									</div>
-								</div>
-								<div className="form-group">
-									<label
-										htmlFor="password_confirm"
-										className="control-label"
-									>
-										Confirm Password:
-									</label>
-									<div className="input-icon">
-										<input
-											onChange={() => {
-												handleChange();
-											}}
-											className="form-control"
-											id="password_confirm"
-											name="password_confirm"
-											type="password"
-										/>
-									</div>
-								</div>
-
-								<div className="form-group">
-									<input
-										type="submit"
-										className="btn btn-primary "
-										value="Reset"
-									/>
-								</div>
-							</form>
+								<span class="label">Password:</span>
+							</label>
+							<label
+								htmlFor="password_confirm"
+								className="control-label line"
+							>
+								<input
+									onChange={() => {
+										handleChange();
+									}}
+									className="form-control"
+									id="password_confirm"
+									name="password_confirm"
+									type="password"
+								/>
+								<span class="label">Confirm Password:</span>
+							</label>
 						</div>
-					</div>
-				</div>
-			</div>
+					</section>
+				</section>
+
+				<section className="content-window">
+					<section>
+						<div className="submission-wrap">
+							<input
+								type="submit"
+								className="button blue"
+								value="Reset"
+							/>
+						</div>
+					</section>
+				</section>
+			</form>
 		</>
 	);
 }
